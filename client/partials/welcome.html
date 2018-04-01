@@ -1,3 +1,5 @@
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
 <div class="data">
   <p>
     Profile details
@@ -9,7 +11,72 @@
   <button ng-click="logout()">logout</button>
   <p class="error" style="display: none">😮 You didn't login with your illinois a/c, please logout and try again!</p>
   <p class="staffError" style="display: none">😱 You're not a part of CS126 course staff, what are you even doing here?</p>
+</div>
 
+<div class="add-user" style="display: none">
+  <p>
+    Looks like you're new here, lets get some basic info to get you started!
+  </p>
+  <form>
+    How many discussion sections do you have?
+    <select ng-model="numDiscussion">
+      <option value="">
+      <option value="one">1
+      <option value="two">2
+    </select>
+  </form>
+
+  <div ng-switch="numDiscussion">
+    <div ng-switch-when="one">
+      What day?
+      <select ng-model="dayDiscussion">
+        <option value="monday">Monday
+        <option value="tuesday">Tuesday
+        <option value="wednesday">Wednesday
+        <option value="thursday">Thursday
+        <option value="friday">Friday
+        <option value="saturday">Saturday
+        <option value="sunday">Sunday
+      </select>
+      Start time?
+      <input type="time" ng-model="timeDiscussion" />
+    </div>
+    <div ng-switch-when="two">
+      Discussion 1: What day?
+      <select ng-model="dayDiscussion">
+        <option value="monday">Monday
+        <option value="tuesday">Tuesday
+        <option value="wednesday">Wednesday
+        <option value="thursday">Thursday
+        <option value="friday">Friday
+        <option value="saturday">Saturday
+        <option value="sunday">Sunday
+      </select>
+      Start time?
+      <input type="time" ng-model="timeDiscussion" />
+      Discussion 2: What day?
+      <select ng-model="dayDiscussion1">
+        <option value="monday">Monday
+        <option value="tuesday">Tuesday
+        <option value="wednesday">Wednesday
+        <option value="thursday">Thursday
+        <option value="friday">Friday
+        <option value="saturday">Saturday
+        <option value="sunday">Sunday
+      </select>
+      Start time?
+      <input type="time" ng-model="timeDiscussion1" />
+    </div>
+  </div>
+</div>
+
+<div class="valid" style="display: none">
+  <div class="view-sections">
+    <a href="/#/view_sections">View people who signed up to sit in your discussion</a>
+  </div>
+  <div class="sign-up-for-discussion">
+    <a href="/#/join_sections">Sign up to sit in a discussion section</a>
+  </div>
 </div>
 
 <script src="../js/script.js" type="text/javascript"></script>
